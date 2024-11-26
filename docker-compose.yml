@@ -1,0 +1,23 @@
+services:
+  web:
+    image: joshika39/nodejs-api-benchmark
+    env_file:
+      - ./.env
+    networks:
+      - benchmark
+
+  benchmark:
+    image: joshika39/benchmark-service
+    env_file:
+      - ./.env
+    depends_on:
+      - web
+    volumes:
+      - ./results/:/output
+    command:
+      - /bin/sh ./benchmark.sh $PORT
+    networks:
+      - benchmark
+
+networks:
+  benchmark:
