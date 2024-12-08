@@ -44,3 +44,14 @@ export const saveContentHandler = async (req, res) => {
     res.json({error: e.message, status: "error"});
   }
 }
+
+export const getFilesHandler = (req, res) => {
+  const filename = req.params.filename;
+  const file = fs.readFileSync(`./files/${stripFilename(filename)}`, "utf-8");
+  res.send(file);
+}
+
+export const getAllFilesHandler = (req, res) => {
+  const files = fs.readdirSync("./files");
+  res.send(files);
+}

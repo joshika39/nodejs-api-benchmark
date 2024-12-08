@@ -1,4 +1,6 @@
 files/*.txt
+!files/sample.txt
+*.csv
 
 # User-specific stuff
 .idea/**/workspace.xml
