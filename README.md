@@ -9,7 +9,7 @@ To setup the project, run the following commands:
 
 ```bash
 
-pnpm install
+npm install
 ```
 
 ## Running the server
